@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMX 2027 - Indonesia Modification & Lifestyle Expo</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF003C',
+                            darkRed: '#CC0030',
+                            gold: '#FFD700',
+                            dark: '#0A0A0C',
+                            card: '#141418',
+                            border: '#262630'
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Orbitron', 'sans-serif'],
+                        body: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Orbitron:wght@500;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0A0A0C;
+            color: #E2E8F0;
+        }
+        
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(255, 0, 60, 0.7), 0 0 20px rgba(255, 0, 60, 0.4);
+        }
+        
+        .neon-box-glow {
+            box-shadow: 0 0 15px rgba(255, 0, 60, 0.3);
+        }
+        
+        .neon-box-glow:hover {
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.6);
+        }
+        
+        .glass-nav {
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 0, 60, 0.2);
+        }
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: #0A0A0C;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: #FF003C;
+            border-radius: 4px;
+        }
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: #CC0030;
+        }
+        
+        .bg-carbon {
+            background-color: #0a0a0c;
+            background-image: radial-gradient(#1f1f28 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(180deg, rgba(10, 10, 12, 0.6) 0%, rgba(10, 10, 12, 0.95) 85%, #0A0A0C 100%), linear-gradient(90deg, rgba(10, 10, 12, 0.9) 0%, rgba(10, 10, 12, 0.4) 50%, rgba(10, 10, 12, 0.9) 100%);
+        }
+    </style>
+</head>
+
+<body class="bg-carbon text-gray-200 antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Header / Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-brand-red rounded-lg flex items-center justify-center transform group-hover:rotate-12 transition-transform duration-300 shadow-lg shadow-brand-red/50">
+                    <i class="fa-solid fa-car-side text-white text-xl"></i>
+                </div>
+                <div>
+                    <span class="font-orbitron font-black text-2xl tracking-wider text-white italic">IMX<span class="text-brand-red">2027</span></span>
+                    <span class="block text-[9px] uppercase tracking-widest text-gray-400 font-semibold -mt-1">Mod & Lifestyle Expo</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-semibold tracking-wide">
+                <a href="#home" class="hover:text-brand-red transition-colors text-white">Home</a>
+                <a href="#about" class="hover:text-brand-red transition-colors text-gray-300">About</a>
+                <a href="#highlights" class="hover:text-brand-red transition-colors text-gray-300">Highlights</a>
+                <a href="#schedule" class="hover:text-brand-red transition-colors text-gray-300">Schedule</a>
+                <a href="#tickets" class="hover:text-brand-red transition-colors text-gray-300">Tickets</a>
+                <a href="#checkout" class="hover:text-brand-red transition-colors text-gray-300">Pendaftaran</a>
+                <a href="#faq" class="hover:text-brand-red transition-colors text-gray-300">FAQ</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden lg:block">
+                <a href="#checkout" class="relative inline-flex items-center px-6 py-2.5 font-orbitron font-bold text-sm text-white bg-brand-red rounded-md overflow-hidden group shadow-lg shadow-brand-red/30 hover:shadow-brand-red/60 transition-all duration-300">
+                    <span class="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-56 group-hover:h-56 opacity-20"></span>
+                    <i class="fa-solid fa-ticket mr-2 text-brand-gold"></i> Beli Tiket
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Button -->
+            <button id="mobileMenuBtn" aria-label="Open Menu" class="lg:hidden text-gray-300 hover:text-white focus:outline-none p-2">
+                <i class="fa-solid fa-bars text-2xl" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-brand-card border-b border-brand-border px-6 py-6 space-y-4">
+            <a href="#home" class="mobile-link block text-lg font-semibold text-white hover:text-brand-red">Home</a>
+            <a href="#about" class="mobile-link block text-lg font-semibold text-gray-300 hover:text-brand-red">About</a>
+            <a href="#highlights" class="mobile-link block text-lg font-semibold text-gray-300 hover:text-brand-red">Highlights</a>
+            <a href="#schedule" class="mobile-link block text-lg font-semibold text-gray-300 hover:text-brand-red">Schedule</a>
+            <a href="#tickets" class="mobile-link block text-lg font-semibold text-gray-300 hover:text-brand-red">Tickets</a>
+            <a href="#checkout" class="mobile-link block text-lg font-semibold text-gray-300 hover:text-brand-red">Pendaftaran</a>
+            <a href="#faq" class="mobile-link block text-lg font-semibold text-gray-300 hover:text-brand-red">FAQ</a>
+            <a href="#checkout" class="mobile-link block w-full text-center py-3 font-orbitron font-bold text-white bg-brand-red rounded-md shadow-md">
+                <i class="fa-solid fa-ticket mr-2 text-brand-gold"></i> Beli Tiket Sekarang
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1920&q=80" alt="IMX Supercar Show" class="w-full h-full object-cover object-center filter brightness-90">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-8">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/40 backdrop-blur-md mb-6">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-ping"></span>
+                <span class="text-xs font-orbitron font-bold tracking-widest text-brand-red uppercase">Official Automotive & Lifestyle Event</span>
+            </div>
+
+            <h1 class="font-orbitron font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-white uppercase italic leading-none mb-6">
+                INDONESIA <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-red-500 to-brand-gold neon-glow">MODIFICATION</span> & LIFESTYLE EXPO
+            </h1>
+
+            <p class="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 font-medium mb-10 leading-relaxed">
+                Puncak selebrasi kultur modifikasi, karya otomotif terbaik, tuner mancanegara, produk aftermarket eksklusif, serta tren gaya hidup pop-culture terbesar di Indonesia!
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center gap-6 mb-12 text-sm md:text-base font-semibold text-gray-200">
+                <div class="flex items-center space-x-2 bg-brand-card/80 border border-brand-border px-4 py-2 rounded-lg backdrop-blur-md">
+                    <i class="fa-solid fa-calendar-days text-brand-red"></i>
+                    <span>1 - 3 JANUARI 2027</span>
+                </div>
+                <div class="flex items-center space-x-2 bg-brand-card/80 border border-brand-border px-4 py-2 rounded-lg backdrop-blur-md">
+                    <i class="fa-solid fa-location-dot text-brand-gold"></i>
+                    <span>ICE BSD CITY, HALL 1-3, TANGERANG</span>
+                </div>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="max-w-3xl mx-auto mb-12">
+                <h3 class="text-xs font-orbitron font-bold tracking-widest text-gray-400 uppercase mb-4">Event Starts In</h3>
+                <div class="grid grid-cols-4 gap-3 sm:gap-6">
+                    <div class="bg-brand-card/90 border border-brand-red/30 rounded-xl p-3 sm:p-5 backdrop-blur-md shadow-lg shadow-brand-red/10">
+                        <span id="days" class="font-orbitron font-black text-2xl sm:text-4xl md:text-5xl text-white block">00</span>
+                        <span class="text-[10px] sm:text-xs uppercase font-bold text-gray-400 mt-1 block">Hari</span>
+                    </div>
+                    <div class="bg-brand-card/90 border border-brand-red/30 rounded-xl p-3 sm:p-5 backdrop-blur-md shadow-lg shadow-brand-red/10">
+                        <span id="hours" class="font-orbitron font-black text-2xl sm:text-4xl md:text-5xl text-white block">00</span>
+                        <span class="text-[10px] sm:text-xs uppercase font-bold text-gray-400 mt-1 block">Jam</span>
+                    </div>
+                    <div class="bg-brand-card/90 border border-brand-red/30 rounded-xl p-3 sm:p-5 backdrop-blur-md shadow-lg shadow-brand-red/10">
+                        <span id="minutes" class="font-orbitron font-black text-2xl sm:text-4xl md:text-5xl text-white block">00</span>
+                        <span class="text-[10px] sm:text-xs uppercase font-bold text-gray-400 mt-1 block">Menit</span>
+                    </div>
+                    <div class="bg-brand-card/90 border border-brand-red/30 rounded-xl p-3 sm:p-5 backdrop-blur-md shadow-lg shadow-brand-red/10">
+                        <span id="seconds" class="font-orbitron font-black text-2xl sm:text-4xl md:text-5xl text-brand-red block">00</span>
+                        <span class="text-[10px] sm:text-xs uppercase font-bold text-gray-400 mt-1 block">Detik</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#checkout" class="w-full sm:w-auto px-8 py-4 font-orbitron font-bold text-base text-white bg-brand-red hover:bg-brand-darkRed rounded-lg transition-all duration-300 shadow-xl shadow-brand-red/40 hover:scale-105">
+                    <i class="fa-solid fa-ticket mr-2 text-brand-gold"></i> Beli Tiket Sekarang
+                </a>
+                <a href="#schedule" class="w-full sm:w-auto px-8 py-4 font-orbitron font-bold text-base text-gray-200 bg-brand-card/80 hover:bg-brand-card border border-brand-border hover:border-brand-red rounded-lg transition-all duration-300 backdrop-blur-md hover:scale-105">
+                    <i class="fa-solid fa-calendar-check mr-2 text-brand-red"></i> Lihat Rundown Event
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Counter Bar -->
+    <section class="relative z-20 border-y border-brand-border bg-brand-card/90 backdrop-blur-md py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-2">
+                    <span class="font-orbitron font-black text-3xl sm:text-5xl text-brand-red block mb-1">100,000+</span>
+                    <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-400">Total Pengunjung</span>
+                </div>
+                <div class="p-2">
+                    <span class="font-orbitron font-black text-3xl sm:text-5xl text-brand-gold block mb-1">250+</span>
+                    <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-400">Exhibitor & Brands</span>
+                </div>
+                <div class="p-2">
+                    <span class="font-orbitron font-black text-3xl sm:text-5xl text-white block mb-1">50+</span>
+                    <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-400">Ultimate Cars Showcase</span>
+                </div>
+                <div class="p-2">
+                    <span class="font-orbitron font-black text-3xl sm:text-5xl text-brand-red block mb-1">Rp 2.5B+</span>
+                    <span class="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-400">Total Giveaways & Deals</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About IMX Section -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-brand-border shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80" alt="About IMX Expo" class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-full h-full bg-gradient-to-tr from-brand-red/30 to-brand-gold/20 rounded-2xl border border-brand-red/30 -z-0 hidden sm:block"></div>
+                </div>
+
+                <div class="space-y-6">
+                    <div class="inline-flex items-center space-x-2 text-brand-red font-orbitron text-sm font-bold tracking-widest uppercase">
+                        <i class="fa-solid fa-gauge-high"></i>
+                        <span>The Ultimate Automotive Platform</span>
+                    </div>
+
+                    <h2 class="font-orbitron font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white uppercase italic leading-tight">
+                        Mendorong Batas <span class="text-brand-red">Kreativitas</span> Otomotif Indonesia
+                    </h2>
+
+                    <p class="text-gray-300 leading-relaxed text-base sm:text-lg">
+                        <strong>IMX (Indonesia Modification & Lifestyle Expo)</strong> adalah pameran otomotif dan lifestyle terbesar di Tanah Air yang menjadi kiblat tren modifikasi mobil, komponen aftermarket lokal, serta budaya pop anak muda.
+                    </p>
+
+                    <p class="text-gray-400 leading-relaxed text-sm sm:text-base">
+                        Menghadirkan kolaborasi skala internasional antara tuner legendaris dunia, produsen suku cadang lokal berkualitas tinggi, kompetisi builder bergengsi, hingga area khusus diecast, streetwear, dan aksi drifting yang memicu adrenalin.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="flex items-start space-x-3 bg-brand-card p-4 rounded-xl border border-brand-border">
+                            <div class="p-3 bg-brand-red/10 rounded-lg text-brand-red">
+                                <i class="fa-solid fa-trophy text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">NMAA Ultimate Builder</h4>
+                                <p class="text-xs text-gray-400 mt-1">Kompetisi karya modifikasi paling bergengsi.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 bg-brand-card p-4 rounded-xl border border-brand-border">
+                            <div class="p-3 bg-brand-gold/10 rounded-lg text-brand-gold">
+                                <i class="fa-solid fa-globe text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Overseas Guest Stars</h4>
+                                <p class="text-xs text-gray-400 mt-1">Kolaborasi tuner internasional papan atas.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section id="highlights" class="py-24 bg-brand-card/40 border-y border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-orbitron text-xs sm:text-sm font-bold tracking-widest uppercase block mb-2">PENGALAMAN TAK TERLUPAKAN</span>
+                <h2 class="font-orbitron font-black text-3xl sm:text-5xl text-white uppercase italic">
+                    EVENT <span class="text-brand-red">HIGHLIGHTS</span> 2027
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">
+                    Jelajahi berbagai zona hiburan, belanja produk modifikasi terbatas, dan saksikan pertunjukan kelas dunia.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red transition-all duration-300 group neon-box-glow flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c?auto=format&fit=crop&w=800&q=80" alt="Ultimate Builder" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-brand-red text-white text-xs font-orbitron font-bold px-3 py-1 rounded-full uppercase">Competition</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-red transition-colors">NMAA Ultimate Builder</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Ajang adu kreasi modifikator terbaik Indonesia memperebutkan Piala Bergengsi dan tiket ke pameran modifikasi dunia.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red transition-all duration-300 group neon-box-glow flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Exclusive Launches" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-brand-gold text-black text-xs font-orbitron font-bold px-3 py-1 rounded-full uppercase">Aftermarket</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-red transition-colors">Exclusive Product Launches</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Peluncuran perdana produk bodykit, velg, suspensi udara, dan perangkat lampu otomotif dengan diskon pameran.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red transition-all duration-300 group neon-box-glow flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Overseas Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-orbitron font-bold px-3 py-1 rounded-full uppercase">Guest Stars</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-red transition-colors">Overseas Tuners & Guest Cars</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Meet & Greet bersama legenda tuning internasional seperti Keiichi Tsuchiya dari Jepang serta pameran mobil ikonik.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red transition-all duration-300 group neon-box-glow flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80" alt="Diecast & Lifestyle" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-orbitron font-bold px-3 py-1 rounded-full uppercase">Lifestyle</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-red transition-colors">Diecast & Sneaker Zone</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Surga kolektor diecast eksklusif IMX edisi terbatas, rilisan apparel streetwear lokal, hingga bazar sneaker paling populer.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red transition-all duration-300 group neon-box-glow flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" alt="Drift Action" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-red-600 text-white text-xs font-orbitron font-bold px-3 py-1 rounded-full uppercase">Live Action</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-red transition-colors">Drift & Performance Show</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Aksi spektakuler dari drifter profesional di outdoor area, disertai program taxi drift eksklusif untuk pengunjung.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border overflow-hidden hover:border-brand-red transition-all duration-300 group neon-box-glow flex flex-col">
+                    <div class="relative h-52 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=800&q=80" alt="Live Music" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-orbitron font-bold px-3 py-1 rounded-full uppercase">Entertainment</span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-orbitron font-bold text-xl text-white mb-2 group-hover:text-brand-red transition-colors">Live Concert & DJ Stage</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">Penampilan musik panggung utama dari musisi, band papan atas, serta DJ ternama yang memeriahkan festival otomotif.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Schedule / Timeline Section -->
+    <section id="schedule" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-orbitron text-xs sm:text-sm font-bold tracking-widest uppercase block mb-2">RUNDOWN ACARA</span>
+                <h2 class="font-orbitron font-black text-3xl sm:text-5xl text-white uppercase italic">
+                    SCHEDULE & <span class="text-brand-red">TIMELINE</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">Jangan lewatkan momen seru selama 3 hari penyelenggaraan IMX 2027.</p>
+            </div>
+
+            <!-- Schedule Tabs Header -->
+            <div class="flex justify-center mb-12">
+                <div class="inline-flex bg-brand-card p-1.5 rounded-xl border border-brand-border space-x-2">
+                    <button class="schedule-tab active px-6 py-3 rounded-lg font-orbitron font-bold text-sm transition-all duration-300 text-white bg-brand-red shadow-lg" data-target="day1">
+                        <i class="fa-solid fa-flag-checkered mr-2"></i> DAY 1 (1 JAN)
+                    </button>
+                    <button class="schedule-tab px-6 py-3 rounded-lg font-orbitron font-bold text-sm transition-all duration-300 text-gray-400 hover:text-white" data-target="day2">
+                        <i class="fa-solid fa-bolt mr-2"></i> DAY 2 (2 JAN)
+                    </button>
+                    <button class="schedule-tab px-6 py-3 rounded-lg font-orbitron font-bold text-sm transition-all duration-300 text-gray-400 hover:text-white" data-target="day3">
+                        <i class="fa-solid fa-crown mr-2"></i> DAY 3 (3 JAN)
+                    </button>
+                </div>
+            </div>
+
+            <!-- Timeline Tab Content -->
+            <div class="max-w-4xl mx-auto">
+                <!-- Day 1 -->
+                <div id="day1" class="schedule-content space-y-4">
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <span class="font-orbitron font-bold text-brand-red text-lg min-w-[120px]">10:00 WIB</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white text-lg">Grand Opening & VIP Press Conference</h4>
+                            <p class="text-gray-400 text-sm">Pembukaan resmi IMX 2027 oleh asosiasi dan peresmian Hall pameran.</p>
+                        </div>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <span class="font-orbitron font-bold text-brand-red text-lg min-w-[120px]">13:30 WIB</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white text-lg">World Premiere & Exclusive Product Launch</h4>
+                            <p class="text-gray-400 text-sm">Peluncuran perdana bodykit, kolaborasi modifikasi, dan komponen aftermarket.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div id="day2" class="schedule-content space-y-4 hidden">
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <span class="font-orbitron font-bold text-brand-red text-lg min-w-[120px]">11:00 WIB</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white text-lg">Meet & Greet with International Tuners</h4>
+                            <p class="text-gray-400 text-sm">Sesi interaksi langsung dengan legenda modifikasi otomotif dunia.</p>
+                        </div>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <span class="font-orbitron font-bold text-brand-red text-lg min-w-[120px]">15:00 WIB</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white text-lg">Live Drift Show & Taxi Ride</h4>
+                            <p class="text-gray-400 text-sm">Aksi mendebarkan drifter profesional di area outdoor ICE BSD.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div id="day3" class="schedule-content space-y-4 hidden">
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <span class="font-orbitron font-bold text-brand-red text-lg min-w-[120px]">13:00 WIB</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white text-lg">Final Judging NMAA Ultimate Builder</h4>
+                            <p class="text-gray-400 text-sm">Penjurian ketat mobil modifikasi terbaik tahun ini.</p>
+                        </div>
+                    </div>
+                    <div class="bg-brand-card p-6 rounded-xl border border-brand-border flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <span class="font-orbitron font-bold text-brand-red text-lg min-w-[120px]">19:00 WIB</span>
+                        <div class="flex-1">
+                            <h4 class="font-bold text-white text-lg">Awarding Night & Closing Ceremony</h4>
+                            <p class="text-gray-400 text-sm">Malam penganugerahan pemenang dan penutupan resmi IMX 2027.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Pricing Section -->
+    <section id="tickets" class="py-24 bg-brand-card/40 border-y border-brand-border relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-red font-orbitron text-xs sm:text-sm font-bold tracking-widest uppercase block mb-2">AMANKAN KURSI ANDA</span>
+                <h2 class="font-orbitron font-black text-3xl sm:text-5xl text-white uppercase italic">
+                    TICKET <span class="text-brand-red">CATEGORIES</span>
+                </h2>
+                <p class="text-gray-400 mt-4 text-sm sm:text-base">Pilih kategori tiket sesuai kebutuhan kunjungan pameran Anda.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Presale / Daily Ticket -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between relative hover:border-brand-red transition-all duration-300">
+                    <div>
+                        <span class="text-xs font-orbitron font-bold uppercase text-gray-400 tracking-widest block mb-2">Daily Pass</span>
+                        <h3 class="font-orbitron font-black text-2xl text-white mb-4">Presale Ticket</h3>
+                        <div class="mb-6">
+                            <span class="font-orbitron font-black text-4xl text-brand-red">Rp 75.000</span>
+                            <span class="text-gray-400 text-xs block mt-1">/ hari pameran</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Akses masuk Hall 1-3 ICE BSD</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Menikmati seluruh display mobil</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Berbelanja di tenant aftermarket</li>
+                        </ul>
+                    </div>
+                    <a href="#checkout" class="w-full py-3 font-orbitron font-bold text-sm text-center text-white bg-brand-card hover:bg-brand-red border border-brand-border rounded-lg transition-all duration-300 block">
+                        Pilih Tiket
+                    </a>
+                </div>
+
+                <!-- VIP Pass (Highlighted) -->
+                <div class="bg-brand-card rounded-2xl border-2 border-brand-red p-8 flex flex-col justify-between relative shadow-xl shadow-brand-red/20 transform md:-translate-y-4">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-red text-white text-[10px] font-orbitron font-bold px-4 py-1 rounded-full uppercase tracking-widest">
+                        Most Popular
+                    </div>
+                    <div>
+                        <span class="text-xs font-orbitron font-bold uppercase text-brand-gold tracking-widest block mb-2">All Access 3 Days</span>
+                        <h3 class="font-orbitron font-black text-2xl text-white mb-4">VIP Special Pass</h3>
+                        <div class="mb-6">
+                            <span class="font-orbitron font-black text-4xl text-white">Rp 250.000</span>
+                            <span class="text-gray-400 text-xs block mt-1">/ 3 hari full access</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Akses VIP selama 3 hari penuh</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Fast track entry tanpa antre</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Kesempatan eksklusif Meet & Greet</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Official IMX Lanyard & Merch</li>
+                        </ul>
+                    </div>
+                    <a href="#checkout" class="w-full py-3 font-orbitron font-bold text-sm text-center text-white bg-brand-red hover:bg-brand-darkRed rounded-lg transition-all duration-300 shadow-lg shadow-brand-red/40 block">
+                        Beli VIP Pass
+                    </a>
+                </div>
+
+                <!-- On The Spot Ticket -->
+                <div class="bg-brand-card rounded-2xl border border-brand-border p-8 flex flex-col justify-between relative hover:border-brand-red transition-all duration-300">
+                    <div>
+                        <span class="text-xs font-orbitron font-bold uppercase text-gray-400 tracking-widest block mb-2">Box Office</span>
+                        <h3 class="font-orbitron font-black text-2xl text-white mb-4">On The Spot (OTS)</h3>
+                        <div class="mb-6">
+                            <span class="font-orbitron font-black text-4xl text-brand-red">Rp 100.000</span>
+                            <span class="text-gray-400 text-xs block mt-1">/ tiket masuk harian</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-300 mb-8">
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Pembelian langsung di lokasi venue</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Akses standar pameran</li>
+                            <li class="flex items-center"><i class="fa-solid fa-check text-brand-red mr-3"></i> Tergantung ketersediaan kuota harian</li>
+                        </ul>
+                    </div>
+                    <a href="#checkout" class="w-full py-3 font-orbitron font-bold text-sm text-center text-white bg-brand-card hover:bg-brand-red border border-brand-border rounded-lg transition-all duration-300 block">
+                        Info Loket
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Pendaftaran Tiket ke WhatsApp Section -->
+    <section id="checkout" class="py-24 relative">
+        <div class="max-w-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-brand-card p-6 sm:p-10 rounded-2xl border border-brand-border shadow-2xl relative">
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-red text-white text-xs font-orbitron font-bold px-4 py-1 rounded-full uppercase tracking-widest shadow-md">
+                    Form Pemesanan
+                </div>
+
+                <div class="text-center mb-8 pt-2">
+                    <h3 class="font-orbitron font-black text-2xl sm:text-3xl text-white mb-2">DAFTAR & PESAN TIKET</h3>
+                    <p class="text-gray-400 text-sm">Isi data diri Anda di bawah, data akan langsung terkirim ke WhatsApp Admin kami.</p>
+                </div>
+
+                <form id="waCheckoutForm" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-300 mb-1.5">Nama Lengkap</label>
+                        <input type="text" id="buyerName" required placeholder="Masukkan nama Anda" class="w-full px-4 py-3 rounded-lg bg-brand-dark border border-brand-border text-white focus:outline-none focus:border-brand-red">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-300 mb-1.5">Email</label>
+                        <input type="email" id="buyerEmail" required placeholder="nama@email.com" class="w-full px-4 py-3 rounded-lg bg-brand-dark border border-brand-border text-white focus:outline-none focus:border-brand-red">
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-300 mb-1.5">Pilihan Tiket</label>
+                        <select id="ticketType" class="w-full px-4 py-3 rounded-lg bg-brand-dark border border-brand-border text-white focus:outline-none focus:border-brand-red">
+                            <option value="Presale Ticket (Rp 75.000)">Presale Ticket - Rp 75.000</option>
+                            <option value="VIP Special Pass (Rp 250.000)">VIP Special Pass - Rp 250.000</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-300 mb-1.5">Jumlah Tiket</label>
+                        <input type="number" id="ticketQty" min="1" value="1" required class="w-full px-4 py-3 rounded-lg bg-brand-dark border border-brand-border text-white focus:outline-none focus:border-brand-red">
+                    </div>
+
+                    <button type="button" onclick="sendToWhatsApp()" class="w-full py-4 font-orbitron font-bold text-white bg-brand-red hover:bg-brand-darkRed rounded-lg transition-all duration-300 shadow-xl shadow-brand-red/40 flex items-center justify-center space-x-2 mt-6">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Kirim Pendaftaran via WhatsApp</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-brand-card/40 border-t border-brand-border relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-brand-red font-orbitron text-xs sm:text-sm font-bold tracking-widest uppercase block mb-2">PERTANYAAN UMUM</span>
+                <h2 class="font-orbitron font-black text-3xl sm:text-5xl text-white uppercase italic">
+                    FREQUENTLY <span class="text-brand-red">ASKED QUESTIONS</span>
+                </h2>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>Di mana lokasi penyelenggaraan IMX 2027?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm leading-relaxed">
+                        IMX 2027 diselenggarakan di ICE BSD City, Hall 1 sampai 3, Tangerang, Banten, pada tanggal 1 - 3 Januari 2027.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>Bagaimana cara membeli tiket IMX 2027?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm leading-relaxed">
+                        Tiket dapat dibeli secara online melalui formulir WhatsApp resmi di website ini atau secara langsung (On The Spot) di loket tiket ICE BSD selama acara berlangsung.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-brand-card border border-brand-border rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-bold text-white flex justify-between items-center focus:outline-none">
+                        <span>Apakah anak-anak dikenakan biaya tiket masuk?</span>
+                        <i class="fa-solid fa-chevron-down text-brand-red transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-gray-400 text-sm leading-relaxed">
+                        Anak-anak dengan tinggi badan di bawah 120 cm dapat masuk area pameran secara gratis dengan didampingi orang dewasa yang memiliki tiket valid.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark border-t border-brand-border pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <div class="space-y-4 md:col-span-2">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-brand-red rounded-lg flex items-center justify-center shadow-lg shadow-brand-red/50">
+                            <i class="fa-solid fa-car-side text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="font-orbitron font-black text-2xl tracking-wider text-white italic">IMX<span class="text-brand-red">2027</span></span>
+                            <span class="block text-[9px] uppercase tracking-widest text-gray-400 font-semibold -mt-1">Mod & Lifestyle Expo</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        Pameran modifikasi otomotif dan lifestyle terbesar di Indonesia yang mempertemukan builder, tuner, dan industri aftermarket global.
+                    </p>
+                    <div class="flex space-x-4 pt-2">
+                        <a href="#" class="w-10 h-10 bg-brand-card hover:bg-brand-red text-gray-300 hover:text-white rounded-lg flex items-center justify-center border border-brand-border transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brand-card hover:bg-brand-red text-gray-300 hover:text-white rounded-lg flex items-center justify-center border border-brand-border transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-10 h-10 bg-brand-card hover:bg-brand-red text-gray-300 hover:text-white rounded-lg flex items-center justify-center border border-brand-border transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-white text-sm uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-brand-red transition-colors">Home</a></li>
+                        <li><a href="#about" class="hover:text-brand-red transition-colors">About Us</a></li>
+                        <li><a href="#highlights" class="hover:text-brand-red transition-colors">Highlights</a></li>
+                        <li><a href="#schedule" class="hover:text-brand-red transition-colors">Schedule</a></li>
+                        <li><a href="#tickets" class="hover:text-brand-red transition-colors">Tickets</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-orbitron font-bold text-white text-sm uppercase tracking-wider mb-4">Contact Info</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li class="flex items-start space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-red mt-1"></i>
+                            <span>ICE BSD City, Tangerang, Banten, Indonesia</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-brand-red"></i>
+                            <span>info@imx.id</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-brand-border pt-8 text-center text-xs text-gray-500">
+                &copy; 2027 IMX (Indonesia Modification & Lifestyle Expo). All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Countdown Timer ke 1 Januari 2027
+        const eventDate = new Date('January 1, 2027 10:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Schedule Tabs
+        const scheduleTabs = document.querySelectorAll('.schedule-tab');
+        const scheduleContents = document.querySelectorAll('.schedule-content');
+
+        scheduleTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                scheduleTabs.forEach(t => {
+                    t.classList.remove('active', 'text-white', 'bg-brand-red', 'shadow-lg');
+                    t.classList.add('text-gray-400');
+                });
+                tab.classList.add('active', 'text-white', 'bg-brand-red', 'shadow-lg');
+                tab.classList.remove('text-gray-400');
+
+                const target = tab.getAttribute('data-target');
+                scheduleContents.forEach(content => {
+                    if (content.id === target) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // FAQ Accordion
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.fa-chevron-down');
+
+                content.classList.toggle('hidden');
+                if (icon) {
+                    icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            });
+        });
+
+        // WhatsApp Checkout Function
+        function sendToWhatsApp() {
+            const phoneNumber = "6282135432425";
+            const name = document.getElementById('buyerName').value;
+            const email = document.getElementById('buyerEmail').value;
+            const ticket = document.getElementById('ticketType').value;
+            const qty = document.getElementById('ticketQty').value;
+
+            if (!name || !email) {
+                alert("Harap isi Nama dan Email terlebih dahulu!");
+                return;
+            }
+
+            const message = `Halo Admin IMX 2027,%0A%0ASaya ingin memesan tiket pameran dengan rincian berikut:%0A- *Nama:* ${encodeURIComponent(name)}%0A- *Email:* ${encodeURIComponent(email)}%0A- *Kategori Tiket:* ${encodeURIComponent(ticket)}%0A- *Jumlah Tiket:* ${encodeURIComponent(qty)}%0A%0AMohon info rekening / instruksi pembayaran selanjutnya. Terima kasih!`;
+
+            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+
+</html
